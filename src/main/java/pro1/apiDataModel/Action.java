@@ -14,6 +14,4 @@ public class Action
     public long teacherId;
     @SerializedName("mistnost")
     public String room;
-    @SerializedName("eprDeadlinePrihlaska")
-    public String deadline;
 }

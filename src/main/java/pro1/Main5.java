@@ -16,7 +16,7 @@ public class Main5 {
         String json = Api.getActionsByDepartment(department,year);
         ActionsList actions= new Gson().fromJson(json, ActionsList.class);
         String res = actions.items.stream()
-                .map(inteli->inteli.room)
+                .map(i->i.room)
                 .filter(s->s!=null)
                 .distinct()
                 .sorted()
