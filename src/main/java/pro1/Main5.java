@@ -16,12 +16,11 @@ public class Main5 {
         String json = Api.getActionsByDepartment(department,year);
         ActionsList actions= new Gson().fromJson(json, ActionsList.class);
         String res = actions.items.stream()
-                .map(i->i.room)
+                .map(inteli->inteli.room)
                 .filter(s->s!=null)
                 .distinct()
                 .sorted()
                 .collect(Collectors.joining(","));
-        System.out.println(res);
         return res;
     }
 }

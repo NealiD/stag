@@ -9,7 +9,9 @@ import java.net.http.HttpResponse;
 public class Api {
 
     private static HttpClient client = HttpClient.newBuilder().build();
+
     private static String baseUrl = "https://stag-demo.uhk.cz/ws/services/rest2";
+
     public static String getTeachersByDepartment(String department)
     {
         return getFromUri(baseUrl+"/ucitel/getUciteleKatedry?outputFormat=JSON&katedra="+department);
@@ -19,6 +21,12 @@ public class Api {
     {
         return getFromUri(baseUrl+"/rozvrhy/getRozvrhByKatedra?semestr=%25&outputFormat=JSON&katedra="+department+"&rok="+year);
     }
+
+    public static String getSpecializations(int year)
+    {
+        return getFromUri(baseUrl+"/prijimacky/getPrijimaciObory?outputFormat=JSON&rok="+year+"&jenAktualni=false");
+    }
+
 
     private static String getFromUri(String uri)
     {
@@ -32,10 +40,4 @@ public class Api {
             return null;
         }
     }
-    public static String getSpecializations(int year)
-    {
-        return getFromUri(baseUrl+"/prijimacky/getPrijimaciObory?outputFormat=JSON&rok="+year+"&jenAktualni=false");
-    }
-
 }
-

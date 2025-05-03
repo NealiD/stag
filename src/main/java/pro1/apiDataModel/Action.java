@@ -12,6 +12,7 @@ public class Action
     public String department;
     @SerializedName("ucitIdno")
     public long teacherId;
+    @SerializedName("mistnost")
     public String room;
     @SerializedName("eprDeadlinePrihlaska")
     public String deadline;
